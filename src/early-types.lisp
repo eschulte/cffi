@@ -50,13 +50,11 @@
 ;;; Type parsers, defined with DEFINE-PARSE-METHOD should return a
 ;;; subtype of the foreign-type class.
 
-;; (defvar *type-parsers* (make-hash-table :test 'equal)
-;;  "Hash table of defined type parsers.")
-(defvar *default-type-parsers* (make-hash-table)
+(defvar *default-type-parsers* (make-hash-table :test 'equal)
   "Hash table for :DEFAULT namespace")
-(defvar *struct-type-parsers* (make-hash-table)
+(defvar *struct-type-parsers* (make-hash-table :test 'equal)
   "Hash table for :STRUCT namespace")
-(defvar *union-type-parsers* (make-hash-table)
+(defvar *union-type-parsers* (make-hash-table :test 'equal)
   "Hash table for :UNION namespace")
 
 (define-condition cffi-error (error)
