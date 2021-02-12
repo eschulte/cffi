@@ -1085,7 +1085,7 @@ The buffer has dynamic extent and may be stack allocated."
                 :unsigned-long-long)))
 
 ;;; Pretty safe bets.
-(defctype :size #+64-bit :uint64 #+32-bit :uint32)
-(defctype :ssize #+64-bit :int64 #+32-bit :int32)
+(defctype :size #+64-bit :uint64 #+32-bit :uint32 #-(or 64-bit 32-bit) :uint64)
+(defctype :ssize #+64-bit :int64 #+32-bit :int32 #-(or 64-bit 32-bit) :uint64)
 (defctype :ptrdiff :ssize)
 (defctype :offset #+(or 64-bit bsd) :int64 #-(or 64-bit bsd) :int32)
